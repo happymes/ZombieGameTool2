@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+background-color: #ccffff;
+text-indent:1px;
+}
+div {
+  margin: 30px;
+  border: 0px solid #4CAF50;
+}
+</style>
+</head>
+<body>
+
+<!--
+<img class="left" src="https://steemitimages.com/DQmT51psiq85QGhqo2vgkgLiVeng8j3evixMtdusz713o3S/ZombiBanner3.png" width="800" height="420" 
+	alt="Zombies banner" title="Zombies banner" />
+	
+	Molotov cocktail has been removed from items list
+-->
+	<h1 style="font-size:300%; color:green; text-shadow: 2px 2px #cccccc; text-indent:5%;">Zombie Adventure Tool</h1>
+	<div>
+<h1>Searches</h1>
+<p>Number of Torches
+<input type="number" id="numberOfTorches" name="Number of Torches" min="0" max="5">
+<br />
+<br />
+<button onclick="doSearch()">Search</button> </p>
+
+<p id="results"></p>
+
+<script>
+function RandomRange(min, max) 
+{
+	return Math.floor(Math.random() * (max + 1));
+}
+
+
+function doSearch() {
+var searchResults = [
+  "You found a zombie",
+  "You found an item",
+  "You found an item"
+];
+
+var zombieResults = [
+  "You found nothing",
+  "You found a hulk",
+  "You found a runner",
+  "You found a walker",
+  "You found a walker",
+  "You found nothing"
+];
+
+var itemResults = [
+  "You found a shotgun",
+  "You found an axe",
+  "You found water",
+  "You found rice",
+  "You found a CZ 550",
+  "You found a torch",
+  "You found a pistol",
+  "You found gasoline",
+  "You found a cross bow",
+  "You found a baseball bat",
+  "You found flour",
+  "You found a rifle"
+];
+
+
+var searchResult = RandomRange(0, 2);
+
+if (searchResult == 0)
+	ZombieSearch();
+	else
+	ItemSearch();
+	
+function ZombieSearch()
+{
+	var zombieSearchResult = RandomRange(0, zombieResults.length - 1)
+	
+	document.getElementById("results").innerHTML = zombieResults[zombieSearchResult];
+}
+
+function ItemSearch()
+{
+	var numberOfTorches = document.getElementById("numberOfTorches").value;
+	var searchResults = new Array(5);
+	
+	for (i = 0; i <= numberOfTorches; i++)
+	{
+		searchResults[i] = RandomRange(0, itemResults.length - 1)
+	}
+	
+	var searchResultsString = "";
+	for (i = 0; i <= numberOfTorches; i++)
+	{
+		searchResultsString += itemResults[searchResults[i]] + "<br />";
+	}
+
+	document.getElementById("results").innerHTML = searchResultsString;
+}
+
+}
+</script>
+	</div>
+
+	<div>
+<h1>Success or fail</h1>
+
+<button onclick="myflip()">Coin toss</button>
+
+<p id="FlipResult"></p>
+
+<script>
+function myflip() {
+var myArray = [
+  "Success",
+  "Failure"
+];
+
+var randomItem = myArray[Math.floor(Math.random()*myArray.length)];
+
+document.getElementById("FlipResult").innerHTML = randomItem;
+}
+</script>
+	</div>
+
+	<div>
+<h1>Attacks / Bonus</h1>
+
+<p>Click the button for the appropriate dice.</p>
+
+<button onclick="myD6()">&nbsp;D6&nbsp;</button>
+
+<p id="d6"></p>
+
+<script>
+function myD6() {
+  var x = document.getElementById("d6")
+  x.innerHTML = Math.floor((Math.random() * 6) + 1);
+}
+</script>
+
+
+<button onclick="myD20()">D20</button>
+
+<p id="d20"></p>
+
+<script>
+function myD20() {
+  var x = document.getElementById("d20")
+  x.innerHTML = Math.floor((Math.random() * 20) + 1);
+}
+</script>
+	</div>
+
+</body>
+</html>
+

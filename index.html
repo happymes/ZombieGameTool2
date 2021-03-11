@@ -108,26 +108,6 @@ function ItemSearch()
 </script>
 	</div>
 
-	<div>
-<h1>Success or fail</h1>
-
-<button onclick="myflip()">Coin toss</button>
-
-<p id="FlipResult"></p>
-
-<script>
-function myflip() {
-var myArray = [
-  "Success",
-  "Failure"
-];
-
-var randomItem = myArray[Math.floor(Math.random()*myArray.length)];
-
-document.getElementById("FlipResult").innerHTML = randomItem;
-}
-</script>
-	</div>
 
 	<div>
 <h1>Attacks / Spawn / Bonus</h1>
@@ -172,6 +152,29 @@ function myD12() {
 </script>
 	</div>	
 
+	
+	<div>
+<h1>Success or fail</h1>
+
+<button onclick="myflip()">Coin toss</button>
+
+<p id="FlipResult"></p>
+
+<script>
+function myflip() {
+var myArray = [
+  "Success",
+  "Failure"
+];
+
+var randomItem = myArray[Math.floor(Math.random()*myArray.length)];
+
+document.getElementById("FlipResult").innerHTML = randomItem;
+}
+</script>
+	</div>
+	
+	
 </body>
 </html>
 
